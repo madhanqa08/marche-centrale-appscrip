@@ -38,7 +38,6 @@ public class BaseTest
     }
 
     public WebDriver driver;
-    public PlaneLogging obj = new PlaneLogging();
     ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     FailedBugHistoryManager failedBugHistoryManager = new FailedBugHistoryManager();
     public LoginPage loginPage;
@@ -94,7 +93,6 @@ public class BaseTest
     @AfterSuite
     public void end() throws Exception
     {
-        obj.createIssueTest();
         System.out.println();
         System.out.println("╔══════════════════════════════════════════════╗");
         System.out.println("║                BUG REPORT                    ║");

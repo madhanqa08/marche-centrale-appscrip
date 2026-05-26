@@ -5,6 +5,7 @@
     <test name="login">
         <classes>
             <class name="org.example.SearchbarTest"/>
+            <class name="plane.PlaneLogging"/>
         </classes>
     </test>
 </suite>
