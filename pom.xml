@@ -20,7 +20,7 @@
   <profiles>
   <profile>
 
-    <id>LoginTest</id>
+    <id>MarcheCentrale</id>
     <build>
       <plugins>
         <plugin>

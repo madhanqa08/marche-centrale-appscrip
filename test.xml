@@ -3,7 +3,6 @@
         <listener class-name="Testcomponents.Listenersclass"/>
     </listeners>
     <test name="login">
-
         <classes>
             <class name="org.example.SearchbarTest"/>
         </classes>
