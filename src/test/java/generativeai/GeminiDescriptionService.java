@@ -28,6 +28,7 @@ public class GeminiDescriptionService {
             throw new IllegalStateException("GROQ_MODEL is missing in environment variables.");
         }
 
+
         this.client = OpenAIOkHttpClient.builder()
                 .apiKey(apiKey)
                 .baseUrl(baseUrl)
