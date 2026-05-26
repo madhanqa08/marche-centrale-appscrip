@@ -1,7 +1,5 @@
 package utilities;
-
 import java.util.HashMap;
-
 public class TestdataTravel
 {
     private static final HashMap<String,String> map = new HashMap<>();

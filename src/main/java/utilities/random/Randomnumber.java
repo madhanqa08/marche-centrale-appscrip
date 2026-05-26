@@ -2,10 +2,10 @@ package utilities.random;
 import java.util.Random;
 public class Randomnumber
 {
-    public static String getEmployeeId()
+    public static String getGeneratedBugId()
     {
-        System.out.println();
-        Random obj = new Random();
-        return String.valueOf(obj.nextInt(90000)+10000);
+        Random random = new Random();
+        int number = 100000000 + random.nextInt(900000000);
+        return "BUG" + number;
     }
 }

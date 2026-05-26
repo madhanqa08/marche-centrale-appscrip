@@ -2,7 +2,6 @@ package abstractcomponents;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -23,7 +22,7 @@ public class AbstractComponents
     }
     public void waitForElementBY(By by)
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
@@ -31,12 +30,18 @@ public class AbstractComponents
     {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
        WebElement element  =  wait.until(ExpectedConditions.elementToBeClickable(by));
-       element.click();
+//       element.click();
     }
-    public void waitForWebElement(WebElement element)
+    public boolean waitForElementtoBeClickableEnabled(WebElement element)
     {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(element));
+       return wait.until(ExpectedConditions.elementToBeClickable(element)).isEnabled();
+    }
+    public boolean waitForInvisiblilityOfByElement(By by,int time)
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
+       return wait.until(
+                ExpectedConditions.invisibilityOfElementLocated(by));
     }
 
     public void presenceofWaitBY(By element)

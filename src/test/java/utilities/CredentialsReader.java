@@ -4,19 +4,23 @@ import java.util.Properties;
 public class CredentialsReader
 {
     private static final Properties prop;
-
-    static {
-        try {
+    static
+    {
+        try
+        {
             prop = new Properties();
             FileInputStream fis =
                     new FileInputStream("src/test/java/utilities/credentials.properties");
             prop.load(fis);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             throw new RuntimeException(e);
         }
     }
 
-    public static String get(String key) {
+    public static String get(String key)
+    {
         return prop.getProperty(key);
     }
 }
