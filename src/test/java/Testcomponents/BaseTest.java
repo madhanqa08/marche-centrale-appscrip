@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import plane.PlaneLogging;
 import utilities.CredentialsReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -90,8 +91,7 @@ public class BaseTest
     }
 
     @AfterSuite
-    public void end()
-    {
+    public void end() throws Exception {
         System.out.println();
         System.out.println("╔══════════════════════════════════════════════╗");
         System.out.println("║                BUG REPORT                    ║");
@@ -99,6 +99,8 @@ public class BaseTest
         System.out.printf ("║ Total Bugs Found : %-25s ║%n",
                 failedBugHistoryManager.getFailedBugCount());
         System.out.println("╚══════════════════════════════════════════════╝");
+        PlaneLogging obj = new PlaneLogging();
+        obj.createIssueTest();
 
     }
     @AfterMethod

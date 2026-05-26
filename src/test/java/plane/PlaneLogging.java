@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class PlaneLogging extends PlaneBase
 {
-    @Test
+
     public void createIssueTest() throws Exception
     {
         planePage.login("madhan.k@appscrip.co", "Universe1234@");

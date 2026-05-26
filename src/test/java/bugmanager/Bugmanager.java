@@ -1,11 +1,9 @@
 package bugmanager;
-
 import generativeai.GeminiDescriptionService;
 import model.TestCaseData;
 import mysqldatabase.FailedBugRepository;
 import utilities.random.Randomnumber;
 import xlutilities.ExcelUtility;
-
 import java.io.InputStream;
 import java.util.List;
 
