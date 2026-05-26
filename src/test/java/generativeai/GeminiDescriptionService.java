@@ -1,10 +1,8 @@
 package generativeai;
-
 import com.openai.client.OpenAIClient;
 import com.openai.client.okhttp.OpenAIOkHttpClient;
 import com.openai.models.chat.completions.ChatCompletion;
 import com.openai.models.chat.completions.ChatCompletionCreateParams;
-
 public class GeminiDescriptionService {
 
 

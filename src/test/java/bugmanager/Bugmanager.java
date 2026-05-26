@@ -11,7 +11,7 @@ public class Bugmanager
     {
         GeminiDescriptionService service = new GeminiDescriptionService("Marche Centrale");
         FailedBugRepository failedBugRepository = new FailedBugRepository();
-        String filePath = "D:\\Appscrip Projects\\Marche Centrale\\xlsheet\\signup_testcases.xlsx";
+        String filePath = System.getProperty("user.dir") + "/xlsheet/signup_testcases.xlsx";
         List<TestCaseData> list =
                 ExcelUtility.getTestCaseData(filePath, testcaseid.replaceAll("\\D+", ""));
 
