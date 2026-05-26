@@ -20,7 +20,7 @@
   <profiles>
   <profile>
 
-    <id>EmployeeCreation</id>
+    <id>LoginTest</id>
     <build>
       <plugins>
         <plugin>
@@ -29,7 +29,7 @@
           <version>3.5.4</version>
           <configuration>
             <suiteXmlFiles>
-              <suiteXmlFile>smoketest.xml</suiteXmlFile>
+              <suiteXmlFile>test.xml</suiteXmlFile>
             </suiteXmlFiles>
           </configuration>
         </plugin>
