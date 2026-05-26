@@ -14,6 +14,7 @@ import java.util.List;
 
 public class Bugmanager {
 
+
     public static void getfailedtestcase(String testcaseid, String actualfail, String path) throws Exception {
         GeminiDescriptionService service = new GeminiDescriptionService("Marche Centrale");
         FailedBugRepository failedBugRepository = new FailedBugRepository();
