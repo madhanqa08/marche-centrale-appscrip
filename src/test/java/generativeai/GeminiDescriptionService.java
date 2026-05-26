@@ -1,24 +1,39 @@
 package generativeai;
-import com.google.genai.Client;
-import com.google.genai.types.GenerateContentResponse;
-public class GeminiDescriptionService
-{
-    private final Client client;
-    private final String websiteName;
-    public GeminiDescriptionService(String websiteName)
-    {
-        String apiKey = "AIzaSyBQj3fjLn6QHUYxy_skMqPsZdQrAsIGi8g";
 
-        if (apiKey == null || apiKey.isBlank())
-        {
-            throw new IllegalStateException("GOOGLE_API_KEY is missing in environment variables.");
+import com.openai.client.OpenAIClient;
+import com.openai.client.okhttp.OpenAIOkHttpClient;
+import com.openai.models.chat.completions.ChatCompletion;
+import com.openai.models.chat.completions.ChatCompletionCreateParams;
+
+public class GeminiDescriptionService {
+
+    private final OpenAIClient client;
+    private final String websiteName;
+    private final String model;
+
+    public GeminiDescriptionService(String websiteName) {
+        String apiKey = System.getenv("GROQ_API_KEY");
+        if (apiKey == null || apiKey.isBlank()) {
+            throw new IllegalStateException("GROQ_API_KEY is missing in environment variables.");
         }
 
-        this.client = Client.builder()
+        String baseUrl = System.getenv("GROQ_BASE_URL");
+        if (baseUrl == null || baseUrl.isBlank()) {
+            baseUrl = "https://api.groq.com/openai/v1";
+        }
+
+        String groqModel = System.getenv("GROQ_MODEL");
+        if (groqModel == null || groqModel.isBlank()) {
+            throw new IllegalStateException("GROQ_MODEL is missing in environment variables.");
+        }
+
+        this.client = OpenAIOkHttpClient.builder()
                 .apiKey(apiKey)
+                .baseUrl(baseUrl)
                 .build();
 
         this.websiteName = websiteName;
+        this.model = groqModel;
     }
 
     public String generateDescription(String testCaseId,
@@ -27,8 +42,7 @@ public class GeminiDescriptionService
                                       String expectedResult,
                                       String priority,
                                       String label,
-                                      String actualError)
-    {
+                                      String actualError) {
 
         String prompt = """
         You are a senior QA automation engineer.
@@ -132,13 +146,19 @@ public class GeminiDescriptionService
                 actualError
         );
 
-        GenerateContentResponse response =
-                client.models.generateContent("gemini-3.5-flash", prompt, null);
+        ChatCompletionCreateParams params = ChatCompletionCreateParams.builder()
+                .model(model)
+                .addUserMessage(prompt)
+                .build();
 
-        String result = response.text();
+        ChatCompletion response = client.chat().completions().create(params);
 
-        if (result == null)
-        {
+        String result = response.choices().stream()
+                .findFirst()
+                .flatMap(choice -> choice.message().content())
+                .orElse(null);
+
+        if (result == null || result.isBlank()) {
             return websiteName + " || " +
                     normalizeModule(module) +
                     " || Description not generated || Expected result not generated";
@@ -147,10 +167,8 @@ public class GeminiDescriptionService
         return cleanup(result);
     }
 
-    private String normalizeModule(String module)
-    {
-        if (module == null)
-        {
+    private String normalizeModule(String module) {
+        if (module == null) {
             return "";
         }
 
@@ -161,8 +179,7 @@ public class GeminiDescriptionService
                 .replace("_", "");
     }
 
-    private String cleanup(String text)
-    {
+    private String cleanup(String text) {
         return text.replace("\n", " ")
                 .replace("\r", " ")
                 .trim();
