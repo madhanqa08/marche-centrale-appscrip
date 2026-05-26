@@ -5,7 +5,6 @@
     <test name="login">
 
         <classes>
-<!--            <class name="org.example.LoginTest"/>-->
             <class name="org.example.SearchbarTest"/>
         </classes>
     </test>
