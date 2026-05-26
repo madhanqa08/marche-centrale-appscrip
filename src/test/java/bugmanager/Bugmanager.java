@@ -9,10 +9,6 @@ import xlutilities.ExcelUtility;
 import java.io.InputStream;
 import java.util.List;
 
-
-
-
-
 public class Bugmanager {
 
 
