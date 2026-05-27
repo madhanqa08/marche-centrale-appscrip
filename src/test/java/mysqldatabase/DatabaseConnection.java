@@ -8,13 +8,13 @@ public class DatabaseConnection
     private static Connection connection;
 
     private static final String URL =
-            "jdbc:mysql://localhost:3306/APPSCRIP";
+            "jdbc:mysql://mysql-1a05f38-madhanoffice08-be00.c.aivencloud.com:17907/defaultdb?ssl-mode=REQUIRED";
 
     private static final String USERNAME =
-            "root";
+            "avnadmin";
 
     private static final String PASSWORD =
-            "Universe9952@";
+            "AVNS_qysMEC_PBTP4XC_XeuR";
 
     public static Connection createConnection()
     {

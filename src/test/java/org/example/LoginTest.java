@@ -135,7 +135,6 @@ public class LoginTest extends BaseTest
     {
         loginPage.clickprofileicon().clicksingup().fillEmail("madhan@gmail");
         Assert.assertEquals(loginPage.getEmailMsg(),"Enter Valid Email");
-
     }
 
     @Test(description = "Verify Email Field – Empty Submission")
