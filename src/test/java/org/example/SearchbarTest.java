@@ -6,18 +6,19 @@ import org.testng.annotations.Test;
 public class SearchbarTest extends BaseTest
 {
     SignupPojo signup = new SignupPojo();
-    @Test(description = "Verify Profile Icon Visibility on Landing Page")
-    public void testcase001()
+    @Test(description = "Verify Email Field – Invalid Format (Missing @)")
+    public void testcase015()
     {
-        boolean flag = loginPage.isprofilepresent();
-        Assert.assertFalse(flag);
+        loginPage.clickprofileicon().clicksingup().fillEmail("madhangmail.com");
+        Assert.assertEquals(loginPage.getEmailMsg(),"Enter Valid Email","Error message is missing for invalid email");
+        Assert.assertFalse(true);
     }
-
-    @Test(description = "Verify Click on Profile Icon Opens Sign In Modal")
-    public void testcase002()
+    @Test(description = "Verify Email Field – Invalid Format (Missing Domain)")
+    public void testcase016()
     {
-        loginPage.clickprofileicon();
-        Assert.assertFalse(loginPage.ispopupresent());
+        loginPage.clickprofileicon().clicksingup().fillEmail("madhan@gmail");
+        Assert.assertEquals(loginPage.getEmailMsg(),"Enter Valid Email");
+        Assert.assertTrue(false);
     }
 
 }
