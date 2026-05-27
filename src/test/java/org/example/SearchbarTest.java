@@ -12,6 +12,8 @@ public class SearchbarTest extends BaseTest
         boolean flag = loginPage.isprofilepresent();
         Assert.assertTrue(flag);
     }
+
+
     @Test(description = "Verify Click on Profile Icon Opens Sign In Modal")
     public void testcase002()
     {
