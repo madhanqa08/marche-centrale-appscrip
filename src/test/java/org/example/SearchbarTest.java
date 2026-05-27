@@ -13,12 +13,11 @@ public class SearchbarTest extends BaseTest
         Assert.assertFalse(flag);
     }
 
-
-
     @Test(description = "Verify Click on Profile Icon Opens Sign In Modal")
     public void testcase002()
     {
         loginPage.clickprofileicon();
         Assert.assertFalse(loginPage.ispopupresent());
     }
+
 }
