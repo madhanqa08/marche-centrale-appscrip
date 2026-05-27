@@ -3,14 +3,14 @@ import com.openai.client.OpenAIClient;
 import com.openai.client.okhttp.OpenAIOkHttpClient;
 import com.openai.models.chat.completions.ChatCompletion;
 import com.openai.models.chat.completions.ChatCompletionCreateParams;
-public class GeminiDescriptionService {
-
-
+public class GeminiDescriptionService
+{
     private final OpenAIClient client;
     private final String websiteName;
     private final String model;
 
-    public GeminiDescriptionService(String websiteName) {
+    public GeminiDescriptionService(String websiteName)
+    {
         String apiKey = System.getenv("GROQ_API_KEY");
         if (apiKey == null || apiKey.isBlank()) {
             throw new IllegalStateException("GROQ_API_KEY is missing in environment variables.");

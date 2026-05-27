@@ -8,7 +8,7 @@ public class DatabaseConnection
     private static Connection connection;
 
     private static final String URL =
-            "jdbc:mysql://mysql-1a05f38-madhanoffice08-be00.c.aivencloud.com:17907/defaultdb?ssl-mode=REQUIRED";
+            "jdbc:mysql://mysql-1a051f38-madhanoffice08-be00.c.aivencloud.com:17907/APPSCRIP?ssl-mode=REQUIRED";
 
     private static final String USERNAME =
             "avnadmin";
