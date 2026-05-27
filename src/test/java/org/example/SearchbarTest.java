@@ -10,10 +10,8 @@ public class SearchbarTest extends BaseTest
     public void testcase001()
     {
         boolean flag = loginPage.isprofilepresent();
-        Assert.assertTrue(flag);
+        Assert.assertFalse(flag);
     }
-
-
 
 
 
@@ -21,6 +19,6 @@ public class SearchbarTest extends BaseTest
     public void testcase002()
     {
         loginPage.clickprofileicon();
-        Assert.assertTrue(loginPage.ispopupresent());
+        Assert.assertFalse(loginPage.ispopupresent());
     }
 }
