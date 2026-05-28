@@ -72,7 +72,7 @@ public class BaseTest
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         return driver;
-
+    }
 
     @BeforeMethod(alwaysRun = true)
     public LoginPage launchApplication() throws IOException
