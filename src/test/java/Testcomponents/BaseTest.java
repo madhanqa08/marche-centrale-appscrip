@@ -9,7 +9,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import plane.PlaneLogging;
 import utilities.CredentialsReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -57,6 +56,10 @@ public class BaseTest
 
         options.addArguments("--force-device-scale-factor=1.1");
         options.addArguments("--guest");
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
 
         if(browser.equalsIgnoreCase("chrome"))
         {
@@ -69,7 +72,6 @@ public class BaseTest
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         return driver;
-    }
 
 
     @BeforeMethod(alwaysRun = true)
