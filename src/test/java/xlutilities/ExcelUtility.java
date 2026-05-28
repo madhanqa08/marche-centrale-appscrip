@@ -1,15 +1,13 @@
 package xlutilities;
-
 import model.TestCaseData;
 import org.apache.poi.ss.usermodel.*;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-
-public class ExcelUtility {
+public class ExcelUtility
+{
 
     public static List<TestCaseData> getTestCaseData(String filePath, String tcIdContains) {
         try (FileInputStream fis = new FileInputStream(filePath)) {

@@ -56,7 +56,6 @@ public class BaseTest
         if(browser.equalsIgnoreCase("chrome"))
         {
             options.addArguments("--force-device-scale-factor=1.1");
-            options.addArguments("--guest");
             options.addArguments("--headless=new");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");

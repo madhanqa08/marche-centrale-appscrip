@@ -3,9 +3,7 @@ import abstractcomponents.AbstractComponents;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.Set;
-
 public class LoginPage extends AbstractComponents
 {
     WebDriver driver;
@@ -15,7 +13,6 @@ public class LoginPage extends AbstractComponents
         this.driver = driver;
         PageFactory.initElements(driver,this);
     }
-
     private final By profile_icon = By.xpath("//div[@id='profile_svg_header']");
     private final By person_icon = By.xpath("(//button[@aria-label='user-profile'])[1]");
     private final By sing_popup = By.xpath("//div[@class='mainSigningSection ']");
@@ -61,7 +58,6 @@ public class LoginPage extends AbstractComponents
     private final By otpCloseButton = By.xpath("//div[contains(@class,'closeIcon')]");
     private final By FirstnameErrorField = By.xpath("(//p[.='First name should not exceed 30 characters'])[2]");
     private final By FirstNameSymbolError = By.xpath("(//p[.='Special characters are not allowed'])[2]");
-
     public void clickLogin()
     {
         // FirstNameSymbolError.click
