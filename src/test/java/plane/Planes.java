@@ -375,7 +375,6 @@ public class Planes
         PageFactory.initElements(driver, this);
         loadUrl("https://pm.appscrip.co/new-kommerce/projects/815e4154-2125-4c64-863c-962acad896e1/issues/");
     }
-
     @Test
     public void createIssueTest() throws Exception
     {
