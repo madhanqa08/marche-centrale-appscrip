@@ -5,6 +5,8 @@ import com.openai.models.chat.completions.ChatCompletion;
 import com.openai.models.chat.completions.ChatCompletionCreateParams;
 public class GeminiDescriptionService
 {
+
+
     private final OpenAIClient client;
     private final String websiteName;
     private final String model;

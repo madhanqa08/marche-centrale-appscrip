@@ -1,7 +1,9 @@
 package mysqldatabase;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 public class DatabaseConnection
 {
     private static Connection connection;
@@ -17,39 +19,65 @@ public class DatabaseConnection
 
     public static Connection createConnection()
     {
-        try
+        while (true)
         {
-            if(connection == null || connection.isClosed())
+            try
             {
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                if (connection == null || connection.isClosed())
+                {
+                    Class.forName("com.mysql.cj.jdbc.Driver");
 
-                connection =
-                        DriverManager.getConnection(
-                                URL,
-                                USERNAME,
-                                PASSWORD
-                        );
+                    System.out.println(
+                            "Trying to connect to database..."
+                    );
 
-                System.out.println("Database Connected Successfully");
+                    connection =
+                            DriverManager.getConnection(
+                                    URL,
+                                    USERNAME,
+                                    PASSWORD
+                            );
+
+                    System.out.println(
+                            "Database Connected Successfully"
+                    );
+                }
+
+                return connection;
+            }
+            catch (Exception e)
+            {
+                System.out.println(
+                        "Database is sleeping or unavailable."
+                );
+
+                System.out.println(
+                        "Waiting for database to wake up..."
+                );
+
+                try
+                {
+                    Thread.sleep(10000);
+                }
+                catch (InterruptedException ex)
+                {
+                    ex.printStackTrace();
+                }
             }
         }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-
-        return connection;
     }
-
 
     public static void closeConnection()
     {
         try
         {
-            if(connection != null && !connection.isClosed())
+            if (connection != null && !connection.isClosed())
             {
                 connection.close();
-                System.out.println("Database Connection Closed");
+
+                System.out.println(
+                        "Database Connection Closed"
+                );
             }
         }
         catch (SQLException e)
