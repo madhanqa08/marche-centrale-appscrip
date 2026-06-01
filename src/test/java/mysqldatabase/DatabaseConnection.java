@@ -1,21 +1,19 @@
 package mysqldatabase;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 public class DatabaseConnection
 {
     private static Connection connection;
 
     private static final String URL =
-            System.getenv("DB_URL");
+            System.getenv("jdbc:mysql://localhost:3306/APPSCRIP");
 
     private static final String USERNAME =
-            System.getenv("DB_USERNAME");
+            System.getenv("root");
 
     private static final String PASSWORD =
-            System.getenv("DB_PASSWORD");
+            System.getenv("Universe9952@");
 
     public static Connection createConnection()
     {

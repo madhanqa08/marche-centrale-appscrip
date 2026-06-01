@@ -5,25 +5,29 @@ import com.openai.models.chat.completions.ChatCompletion;
 import com.openai.models.chat.completions.ChatCompletionCreateParams;
 public class GeminiDescriptionService
 {
-
-
     private final OpenAIClient client;
     private final String websiteName;
     private final String model;
 
     public GeminiDescriptionService(String websiteName)
     {
-        String apiKey = System.getenv("GROQ_API_KEY");
+        //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
+//        String apiKey = System.getenv("GROQ_API_KEY");
+        String apiKey = "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";
         if (apiKey == null || apiKey.isBlank()) {
             throw new IllegalStateException("GROQ_API_KEY is missing in environment variables.");
         }
 
-        String baseUrl = System.getenv("GROQ_BASE_URL");
+        //https://api.groq.com/openai/v1
+        String baseUrl = "https://api.groq.com/openai/v1";
+//        String baseUrl = System.getenv("GROQ_BASE_URL");
         if (baseUrl == null || baseUrl.isBlank()) {
             baseUrl = "https://api.groq.com/openai/v1";
         }
 
-        String groqModel = System.getenv("GROQ_MODEL");
+
+        String groqModel = "llama-3.3-70b-versatile";
+//        String groqModel = System.getenv("GROQ_MODEL");
         if (groqModel == null || groqModel.isBlank()) {
             throw new IllegalStateException("GROQ_MODEL is missing in environment variables.");
         }

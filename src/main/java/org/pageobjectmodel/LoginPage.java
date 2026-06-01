@@ -58,6 +58,8 @@ public class LoginPage extends AbstractComponents
     private final By otpCloseButton = By.xpath("//div[contains(@class,'closeIcon')]");
     private final By FirstnameErrorField = By.xpath("(//p[.='First name should not exceed 30 characters'])[2]");
     private final By FirstNameSymbolError = By.xpath("(//p[.='Special characters are not allowed'])[2]");
+
+
     public void clickLogin()
     {
         // FirstNameSymbolError.click

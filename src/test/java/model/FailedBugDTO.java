@@ -1,5 +1,4 @@
 package model;
-
 public class FailedBugDTO
 {
     private String recordNo;

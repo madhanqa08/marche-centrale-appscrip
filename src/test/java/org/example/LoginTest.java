@@ -200,7 +200,7 @@ public class LoginTest extends BaseTest
     {
 
         loginPage.clickprofileicon().clicksingup();
-        String originalWindow = driver.getWindowHandle();
+        String originalWindow = getDriver().getWindowHandle();
         loginPage.clickTerms();
         String newTabUrl = loginPage.switchToNewTabAndGetUrl(originalWindow);
         Assert.assertTrue(newTabUrl.contains("terms-conditions"), "The link did not navigate to the Terms & Conditions page! Actual URL: " + newTabUrl);
@@ -211,7 +211,7 @@ public class LoginTest extends BaseTest
     public void testcase026()
     {
         loginPage.clickprofileicon().clicksingup();
-        String originalWindow = driver.getWindowHandle();
+        String originalWindow = getDriver().getWindowHandle();
         loginPage.clickPrivacy();
         String newTabUrl = loginPage.switchToNewTabAndGetUrl(originalWindow);
         Assert.assertTrue(newTabUrl.contains("privacy-policy"), "The link did not navigate to the Terms & Conditions page! Actual URL: " + newTabUrl);
@@ -442,7 +442,7 @@ public class LoginTest extends BaseTest
     public void testcase051() throws InterruptedException
     {
         Assert.assertTrue(loginPage.clickprofileicon().ispopupresent());
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(getDriver());
         actions.moveByOffset(10, 10).click().perform();
         Thread.sleep(5000);
         Assert.assertTrue(loginPage.ispopupdisappear(1));
