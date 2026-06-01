@@ -11,23 +11,17 @@ public class GeminiDescriptionService
 
     public GeminiDescriptionService(String websiteName)
     {
-        //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
-//        String apiKey = System.getenv("GROQ_API_KEY");
-        String apiKey = "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";
+        String apiKey = System.getenv("GROQ_API_KEY");
         if (apiKey == null || apiKey.isBlank()) {
             throw new IllegalStateException("GROQ_API_KEY is missing in environment variables.");
         }
 
-        //https://api.groq.com/openai/v1
-        String baseUrl = "https://api.groq.com/openai/v1";
-//        String baseUrl = System.getenv("GROQ_BASE_URL");
+        String baseUrl = System.getenv("GROQ_BASE_URL");
         if (baseUrl == null || baseUrl.isBlank()) {
             baseUrl = "https://api.groq.com/openai/v1";
         }
 
-
-        String groqModel = "llama-3.3-70b-versatile";
-//        String groqModel = System.getenv("GROQ_MODEL");
+        String groqModel = System.getenv("GROQ_MODEL");
         if (groqModel == null || groqModel.isBlank()) {
             throw new IllegalStateException("GROQ_MODEL is missing in environment variables.");
         }
