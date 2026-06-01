@@ -11,7 +11,6 @@ public class GeminiDescriptionService
 
     public GeminiDescriptionService(String websiteName)
     {
-
         String apiKey = System.getenv("GROQ_API_KEY");
         if (apiKey == null || apiKey.isBlank()) {
             throw new IllegalStateException("GROQ_API_KEY is missing in environment variables.");
